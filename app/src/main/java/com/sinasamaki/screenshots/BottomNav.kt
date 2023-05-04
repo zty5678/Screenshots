@@ -21,7 +21,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.unit.dp
 
-@ExperimentalAnimationApi
+
 @Composable
 fun BottomNav(
     screens: List<Screen>
@@ -65,7 +65,7 @@ fun BottomNav(
 }
 
 
-@ExperimentalAnimationApi
+
 @Composable
 private fun BottomNavItem(
     modifier: Modifier = Modifier,

@@ -32,7 +32,6 @@ import tools.fastlane.screengrab.Screengrab
 import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy
 import tools.fastlane.screengrab.locale.LocaleTestRule
 
-@ExperimentalAnimationApi
 class MyComposeTest {
 
     @get:Rule
