@@ -1,10 +1,17 @@
 package com.sinasamaki.screenshots.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,
@@ -44,3 +51,4 @@ fun ScreenshotsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compo
         content = content
     )
 }
+

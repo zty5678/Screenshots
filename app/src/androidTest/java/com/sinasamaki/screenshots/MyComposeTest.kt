@@ -59,17 +59,8 @@ class MyComposeTest {
     @Test
     fun screenshotInCard() {
         composeTestRule.setContent {
-            ScreenshotsTheme {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(30.dp)
-                        .shadow(elevation = 18.dp, shape = RoundedCornerShape(10.dp))
-                        .clip(RoundedCornerShape(10.dp))
-                ) {
-                    App()
-                }
-            }
+            previewMainApp()
+
         }
         composeTestRule.takeScreenshot("screenshotInCard")
     }
@@ -77,56 +68,8 @@ class MyComposeTest {
     @Test
     fun titleScreenshot() {
         composeTestRule.setContent {
-            ScreenshotsTheme {
-                Box(
-                    Modifier
-                        .fillMaxSize()
-                        .background(Color.White)
-                ) {
 
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.TopEnd)
-                            .offset(x = 10.dp, y = 30.dp)
-                            .size(200.dp)
-                            .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.TopStart)
-                            .offset(x = 40.dp, y = 130.dp)
-                            .size(50.dp)
-                            .background(color = MaterialTheme.colors.primary, shape = CircleShape)
-                    )
-                    Column(
-                        modifier = Modifier
-                            .verticalScroll(state = rememberScrollState(), reverseScrolling = false)
-                            .fillMaxSize()
-                    ) {
-
-                        Text(
-                            text = "Tasks app",
-                            textAlign = TextAlign.Center,
-                            fontSize = 48.sp,
-                            fontWeight = FontWeight.Black,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 94.dp)
-                        )
-
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(640.dp)
-                                .padding(horizontal = 30.dp)
-                                .shadow(elevation = 18.dp, shape = RoundedCornerShape(10.dp))
-                                .clip(RoundedCornerShape(10.dp))
-                        ) {
-                            App()
-                        }
-                    }
-                }
-            }
+            previewTitle()
         }
         composeTestRule.takeScreenshot("title")
     }
@@ -134,55 +77,7 @@ class MyComposeTest {
     @Test
     fun subtitleScreenshot() {
         composeTestRule.setContent {
-            ScreenshotsTheme {
-                Box(
-                    Modifier
-                        .background(Color.White)
-                        .fillMaxSize()
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .offset(x = 10.dp, y = 30.dp)
-                            .size(200.dp)
-                            .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
-                    )
-                    Box(
-                        modifier = Modifier
-                            .align(Alignment.BottomEnd)
-                            .offset(x = (-40).dp, y = (-130).dp)
-                            .size(50.dp)
-                            .background(color = MaterialTheme.colors.primary, shape = CircleShape)
-                    )
-                    Column(
-                        modifier = Modifier
-                            .verticalScroll(state = rememberScrollState(), reverseScrolling = true)
-                            .fillMaxSize()
-                    ) {
-
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .height(800.dp)
-                                .padding(horizontal = 30.dp)
-                                .shadow(elevation = 18.dp, shape = RoundedCornerShape(10.dp))
-                                .clip(RoundedCornerShape(10.dp))
-                        ) {
-                            App()
-                        }
-
-                        Text(
-                            text = "Manage tasks",
-                            textAlign = TextAlign.Center,
-                            fontSize = 48.sp,
-                            fontWeight = FontWeight.Black,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 94.dp)
-                        )
-                    }
-                }
-            }
+            previewSubTitle()
         }
         composeTestRule.takeScreenshot("subtitle")
     }
@@ -190,79 +85,7 @@ class MyComposeTest {
     @Test
     fun themeScreenshot() {
         composeTestRule.setContent {
-            Box(
-                Modifier
-                    .fillMaxSize()
-                    .background(Color.White)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .offset(x = 10.dp, y = 30.dp)
-                        .size(200.dp)
-                        .background(color = MaterialTheme.colors.secondary, shape = CircleShape)
-                )
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .offset(x = 40.dp, y = 140.dp)
-                        .size(50.dp)
-                        .background(color = MaterialTheme.colors.primary, shape = CircleShape)
-                )
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                ) {
-
-                    Text(
-                        text = "Light or Dark",
-                        textAlign = TextAlign.Center,
-                        fontSize = 48.sp,
-                        fontWeight = FontWeight.Black,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 94.dp)
-                    )
-
-                    val config = LocalConfiguration.current
-
-                    Row(
-                        modifier = Modifier
-                            .requiredWidth(config.screenWidthDp.dp * 2)
-                            .weight(1f)
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .width(config.screenWidthDp.dp)
-                                .padding(horizontal = 30.dp)
-                                .shadow(elevation = 18.dp, shape = RoundedCornerShape(10.dp))
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color.Green)
-                        ) {
-                            ScreenshotsTheme(darkTheme = false) {
-                                App()
-                            }
-
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .fillMaxHeight()
-                                .width(config.screenWidthDp.dp)
-                                .padding(horizontal = 30.dp)
-                                .shadow(elevation = 18.dp, shape = RoundedCornerShape(10.dp))
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color.Green)
-                        ) {
-                            ScreenshotsTheme(darkTheme = true) {
-                                App()
-                            }
-
-                        }
-                    }
-                }
-            }
+            previewTheme()
         }
         composeTestRule.takeScreenshot("theme")
     }
