@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 33
-
+    compileSdk 34
+    namespace 'com.sinasamaki.screenshots'
     defaultConfig {
         applicationId "com.sinasamaki.screenshots"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -43,7 +43,9 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    namespace 'com.sinasamaki.screenshots'
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.15'
+    }
 }
 
 dependencies {

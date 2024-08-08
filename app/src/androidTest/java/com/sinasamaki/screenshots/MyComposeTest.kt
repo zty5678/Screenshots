@@ -98,5 +98,7 @@ private fun AndroidComposeTestRule<ActivityScenarioRule<TestActivity>, TestActiv
         awaitIdle()
         delay(100)
         Screengrab.screenshot(screenshotName)
+
+        delay(1000)
     }
 }
